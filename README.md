@@ -14,13 +14,8 @@
 # Test de integridad
 
 Al intentar eliminar un Director que tiene películas asociadas sin usar cascada, se arroja el error:
-
 ```
-
 org.hibernate.exception.ConstraintViolationException: could not execute statement
-
 SQL Error \[23503]: Referential integrity constraint violation
-
 ```
-
 El error viene de la relación @ManyToOne en MovieEntity. Crea una foreign key al ser creada, cuando se elimina el director las peliculas quedan con una referencia a una llave inexistence, lo cual no esta permitido.
